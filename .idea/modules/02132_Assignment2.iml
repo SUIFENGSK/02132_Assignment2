@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module external.linked.project.id="root-02132_assignment2 [file:/G:/OneDrive_PRIVAT/OneDrive/Uni_DTU/3.semester/02132%20Computersystemer%20E22/02132_workspace/02132_Assignment2/]" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="SBT" type="JAVA_MODULE" version="4">
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_18">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
     <output url="file://$MODULE_DIR$/../../target/scala-2.12/classes" />
     <output-test url="file://$MODULE_DIR$/../../target/scala-2.12/test-classes" />
     <exclude-output />
