@@ -3,7 +3,7 @@ import chisel3.iotesters
 import chisel3.iotesters.PeekPokeTester
 
 import java.util
-// test
+
 class HelloTester(dut: Hello) extends PeekPokeTester(dut) {
   //Do not run the test
   poke(dut.io.run, 0)
