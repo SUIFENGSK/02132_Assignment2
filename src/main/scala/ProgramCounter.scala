@@ -10,6 +10,19 @@ class ProgramCounter extends Module {
     val programCounter = Output(UInt(16.W))
   })
 
-  //Implement this module here (respect the provided interface, since it used by the tester)
+  val notRun = !io.run
+  val runOrStop = notRun | io.stop
+
+  val countReg = RegInit(0.U(16.W))
+
+  val adder = countReg + 1.U
+
+  val mux1 = Mux(io.jump, io.programCounterJump,adder)
+
+  val mux2 = Mux(runOrStop, countReg, mux1)
+
+  countReg := mux2
+
+  io.programCounter := countReg
 
 }
