@@ -12,9 +12,9 @@ module ProgramCounter(
 `endif // RANDOMIZE_REG_INIT
   wire  notRun = ~io_run; // @[ProgramCounter.scala 13:16]
   wire  runOrStop = notRun | io_stop; // @[ProgramCounter.scala 14:26]
-  reg [15:0] countReg; // @[ProgramCounter.scala 16:25]
-  wire [15:0] adder = countReg + 16'h1; // @[ProgramCounter.scala 18:24]
-  assign io_programCounter = countReg; // @[ProgramCounter.scala 26:21]
+  reg [15:0] countReg; // @[ProgramCounter.scala 15:25]
+  wire [15:0] adder = countReg + 16'h1; // @[ProgramCounter.scala 16:24]
+  assign io_programCounter = countReg; // @[ProgramCounter.scala 20:21]
 `ifdef RANDOMIZE_GARBAGE_ASSIGN
 `define RANDOMIZE
 `endif
