@@ -17,7 +17,16 @@ class ControlUnit extends Module {
     val stop = Output(Bool())
   })
 
-  //Implement this module here
+  // Default values
+  io.regWrite := false.B // Not used for this instruction
+  io.aluOp := "b000000".U // Not used for this instruction
+  io.aluSrc := false.B //Not used for this instruction
+  io.memToReg := false.B // Not used for this instruction
+  io.writeReadReg := false.B // Not used for this instruction
+  io.writeToMemory := false.B // Not used for this instruction
+  io.jump := false.B // Not used for this instruction
+  io.stop := true.B // Don't stop
+
   switch (io.opcode) {
 
     /* R-Type */
@@ -171,7 +180,7 @@ class ControlUnit extends Module {
     }
 
     // Jump if neq TODO: How is this implemented?
-    is("b100001".U) {
+    is("b100010".U) {
       io.regWrite := false.B // Don't write to register
       io.aluOp := "b000001".U // Subtraction
       io.aluSrc := false.B // Read from register
@@ -182,7 +191,7 @@ class ControlUnit extends Module {
       io.stop := false.B // Don't stop
     }
 
-    // Jump if equal
+    // End execution
     is("b111111".U) {
       io.regWrite := false.B // Not used for this instruction
       io.aluOp := "b000000".U // Not used for this instruction
