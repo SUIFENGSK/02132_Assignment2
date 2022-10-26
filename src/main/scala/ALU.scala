@@ -5,13 +5,13 @@ class ALU extends Module {
   val io = IO(new Bundle {
     //Define the module interface here (inputs/outputs)
     var sel= Input(UInt(6.W))
-    var oper1= Input(SInt(32.W))
-    var oper2= Input(SInt(32.W))
+    var oper1= Input(UInt(32.W))
+    var oper2= Input(UInt(32.W))
     var comparisonResult= Output(Bool())
-    var result= Output(SInt(32.W))
+    var result= Output(UInt(32.W))
   })
   //Implement this module here
-  io.result := 0.S(32.W)
+  io.result := 0.U(32.W)
   io.comparisonResult := 0.U
   switch(io.sel)
   {
@@ -50,16 +50,6 @@ class ALU extends Module {
     is("b100001".U) //JEQ
     {
       when(io.oper1===io.oper2)
-      {
-        io.comparisonResult := 1.U
-      }.otherwise
-      {
-        io.comparisonResult := 0.U
-      }
-    }
-    is("b100010".U) //BNEG
-    {
-      when(io.oper1<0.S)
       {
         io.comparisonResult := 1.U
       }.otherwise

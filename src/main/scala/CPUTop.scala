@@ -28,8 +28,50 @@ class CPUTop extends Module {
   val alu = Module(new ALU())
 
   //Connecting the modules
-  //programCounter.io.run := io.run
-  //programMemory.io.address := programCounter.io.programCounter
+
+  // ProgramCounter -> ProgramMemory
+  programCounter.io.run := io.run
+  programMemory.io.address := programCounter.io.programCounter
+  programCounter.io.stop:=controlUnit.io.stop
+  programCounter.io.jump:= controlUnit.io.jump & alu.io.comparisonResult //And Gate
+  programCounter.io.programCounterJump:=programMemory.io.instructionRead
+
+  // ProgramMemory -> RegisterFile and ControUnit
+  registerFile.io.aSel:=programMemory.io.instructionRead(20,16);
+  // Mux Gate, if sel true, then 25-21, else 15-11
+  registerFile.io.bSel:= Mux(controlUnit.io.writeReadReg,programMemory.io.instructionRead(25,21),programMemory.io.instructionRead(15,11))
+  registerFile.io.writeSel:=programMemory.io.instructionRead(25,21)
+  // Mux Gate, if sel true, then dataRead, else alu output
+  registerFile.io.writeData:=Mux(controlUnit.io.memToReg,dataMemory.io.dataRead,alu.io.result)
+  registerFile.io.writeEnable:=controlUnit.io.regWrite
+
+  // ProgramMemory -> ControlUnit
+  controlUnit.io.opcode:=programMemory.io.instructionRead(31,26)
+
+  // RegisterFile -> ALU
+  alu.io.oper1:=registerFile.io.a
+  // Extend sign for instruction(15,0) from 16 to 32 bits
+  val signExtend=Wire(UInt(32.W))
+  signExtend:=Cat(Fill(16,programMemory.io.instructionRead(15)),programMemory.io.instructionRead(15,0))
+  alu.io.oper2:=Mux(controlUnit.io.aluSrc,signExtend,registerFile.io.b)
+  alu.io.sel:=controlUnit.io.aluOp
+
+  // Reduce sign four mux output from 32 to 16 bits
+  val reduceSign=Wire(UInt(16.W))
+  reduceSign:=Mux(controlUnit.io.aluSrc,signExtend,registerFile.io.b)
+
+  // RegisterFile -> DataMemory
+  dataMemory.io.address:=reduceSign
+  dataMemory.io.dataWrite:=registerFile.io.a
+  dataMemory.io.writeEnable:=controlUnit.io.writeToMemory
+
+  io.done:=controlUnit.io.stop
+
+
+
+
+
+
 
   ////////////////////////////////////////////
   //Continue here with your connections
