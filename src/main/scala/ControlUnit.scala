@@ -110,7 +110,7 @@ class ControlUnit extends Module {
       io.regWrite := true.B // Write to register
       io.aluOp := "b000000".U // Add
       io.aluSrc := true.B // Read from immediate
-      io.memToReg := true.B // Read from memory
+      io.memToReg := false.B // Read from memory
       io.writeReadReg := false.B // Not used for this instruction
       io.writeToMemory := false.B // Don't write to memory
       io.jump := false.B // Don't jump
@@ -170,16 +170,16 @@ class ControlUnit extends Module {
     // Jump if equal
     is("b100001".U) {
       io.regWrite := false.B // Don't write to register
-      io.aluOp := "b000001".U // Subtraction
+      io.aluOp := "b100001".U // Subtraction
       io.aluSrc := false.B // Read from register
       io.memToReg := false.B // Not used for this instruction
-      io.writeReadReg := false.B // Not used for this instruction
+      io.writeReadReg := true.B // Not used for this instruction
       io.writeToMemory := false.B // Don't write to memory
       io.jump := true.B // Jump
       io.stop := false.B // Don't stop
     }
 
-    // Jump if neq TODO: How is this implemented?
+    // Jump if neq
     is("b100010".U) {
       io.regWrite := false.B // Don't write to register
       io.aluOp := "b000001".U // Subtraction

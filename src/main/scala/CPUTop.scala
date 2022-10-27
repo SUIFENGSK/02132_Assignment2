@@ -33,7 +33,7 @@ class CPUTop extends Module {
   programCounter.io.run := io.run
   programMemory.io.address := programCounter.io.programCounter
   programCounter.io.stop:=controlUnit.io.stop
-  programCounter.io.jump:= controlUnit.io.jump & alu.io.comparisonResult //And Gate
+  programCounter.io.jump:= controlUnit.io.jump && alu.io.comparisonResult //And Gate
   programCounter.io.programCounterJump:=programMemory.io.instructionRead
 
   // ProgramMemory -> RegisterFile and ControUnit
@@ -52,7 +52,7 @@ class CPUTop extends Module {
   alu.io.oper1:=registerFile.io.a
   // Extend sign for instruction(15,0) from 16 to 32 bits
   val signExtend=Wire(UInt(32.W))
-  signExtend:=Cat(Fill(16,programMemory.io.instructionRead(15)),programMemory.io.instructionRead(15,0))
+  signExtend:=Cat(Fill(16,0.U),programMemory.io.instructionRead(15,0))
   alu.io.oper2:=Mux(controlUnit.io.aluSrc,signExtend,registerFile.io.b)
   alu.io.sel:=controlUnit.io.aluOp
 

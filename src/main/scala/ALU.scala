@@ -51,10 +51,10 @@ class ALU extends Module {
     {
       when(io.oper1===io.oper2)
       {
-        io.comparisonResult := 1.U
+        io.comparisonResult := true.B
       }.otherwise
       {
-        io.comparisonResult := 0.U
+        io.comparisonResult := false.B
       }
     }
   }
