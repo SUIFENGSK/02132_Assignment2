@@ -57,5 +57,9 @@ class ALU extends Module {
         io.comparisonResult := false.B
       }
     }
+    is("b100000".U) //JR
+    {
+        io.comparisonResult := true.B
+    }
   }
 }
