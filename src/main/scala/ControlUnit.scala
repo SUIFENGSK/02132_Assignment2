@@ -158,7 +158,7 @@ class ControlUnit extends Module {
     // Jump
     is("b100000".U) {
       io.regWrite := false.B // Write to register
-      io.aluOp := "b000000".U // Not used for this instruction
+      io.aluOp := "b100000".U // Not used for this instruction
       io.aluSrc := true.B // Not used for this instruction
       io.memToReg := false.B // Not used for this instruction
       io.writeReadReg := false.B // Not used for this instruction
