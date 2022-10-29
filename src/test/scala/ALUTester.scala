@@ -71,6 +71,13 @@ class ALUTester(dut: ALU) extends PeekPokeTester(dut) {
   poke(dut.io.oper2, 100.U(32.W))
   step(1)
   expect(dut.io.comparisonResult, false)
+
+  //JR
+  poke(dut.io.sel, "b100000".U(8.W))
+  poke(dut.io.oper1, 5.U(32.W))
+  poke(dut.io.oper2, 100.U(32.W))
+  step(1)
+  expect(dut.io.comparisonResult, true)
 }
 
 object ALUTester {
