@@ -11,7 +11,7 @@ class ControlUnit extends Module {
     val aluOp = Output(UInt(6.W))
     val aluSrc = Output(Bool())
     val memToReg = Output(Bool())
-    val writeReadReg = Output(Bool())
+    val readReg = Output(Bool())
     val writeToMemory = Output(Bool())
     val loadFromMemory = Output(Bool())
     val jump = Output(Bool())
@@ -23,7 +23,7 @@ class ControlUnit extends Module {
   io.aluOp := "b000000".U // Not used for this instruction
   io.aluSrc := false.B //Not used for this instruction
   io.memToReg := false.B // Not used for this instruction
-  io.writeReadReg := false.B // Not used for this instruction
+  io.readReg := false.B // Not used for this instruction
   io.writeToMemory := false.B // Not used for this instruction
   io.loadFromMemory := false.B // Not used for this instruction
   io.jump := false.B // Not used for this instruction
@@ -39,7 +39,7 @@ class ControlUnit extends Module {
       io.aluOp := "b000000".U // Addition
       io.aluSrc := false.B // Read from register
       io.memToReg := false.B // Save ALU result to register
-      io.writeReadReg := false.B // Use instruction[15-11] as read register
+      io.readReg := false.B // Use instruction[15-11] as read register
       io.writeToMemory := false.B // Don't write to memory
       io.loadFromMemory := false.B // Not used for this instruction
       io.jump := false.B // Don't jump
@@ -52,7 +52,7 @@ class ControlUnit extends Module {
       io.aluOp := "b000001".U // Subtraction
       io.aluSrc := false.B // Read from register
       io.memToReg := false.B // Save ALU result to register
-      io.writeReadReg := false.B // Use instruction[15-11] as read register
+      io.readReg := false.B // Use instruction[15-11] as read register
       io.writeToMemory := false.B // Don't write to memory
       io.loadFromMemory := false.B // Not used for this instruction
       io.jump := false.B // Don't jump
@@ -65,7 +65,7 @@ class ControlUnit extends Module {
       io.aluOp := "b000010".U // Multiplication
       io.aluSrc := false.B // Read from register
       io.memToReg := false.B // Save ALU result to register
-      io.writeReadReg := false.B // Use instruction[15-11] as read register
+      io.readReg := false.B // Use instruction[15-11] as read register
       io.writeToMemory := false.B // Don't write to memory
       io.loadFromMemory := false.B // Not used for this instruction
       io.jump := false.B // Don't jump
@@ -78,7 +78,7 @@ class ControlUnit extends Module {
       io.aluOp := "b000011".U // Add immediate
       io.aluSrc := true.B // Read from immediate
       io.memToReg := false.B // Save ALU result to register
-      io.writeReadReg := false.B // Not used for this instruction
+      io.readReg := false.B // Not used for this instruction
       io.writeToMemory := false.B // Don't write to memory
       io.loadFromMemory := false.B // Not used for this instruction
       io.jump := false.B // Don't jump
@@ -91,7 +91,7 @@ class ControlUnit extends Module {
       io.aluOp := "b000100".U // Subtract immediate
       io.aluSrc := true.B // Read from immediate
       io.memToReg := false.B // Save ALU result to register
-      io.writeReadReg := false.B // Not used for this instruction
+      io.readReg := false.B // Not used for this instruction
       io.writeToMemory := false.B // Don't write to memory
       io.loadFromMemory := false.B // Not used for this instruction
       io.jump := false.B // Don't jump
@@ -104,7 +104,7 @@ class ControlUnit extends Module {
       io.aluOp := "b000101".U // Mul immediate
       io.aluSrc := true.B // Read from immediate
       io.memToReg := false.B // Save ALU result to register
-      io.writeReadReg := false.B // Not used for this instruction
+      io.readReg := false.B // Not used for this instruction
       io.writeToMemory := false.B // Don't write to memory
       io.loadFromMemory := false.B // Not used for this instruction
       io.jump := false.B // Don't jump
@@ -119,7 +119,7 @@ class ControlUnit extends Module {
       io.aluOp := "b000000".U // Add
       io.aluSrc := true.B // Read from immediate
       io.memToReg := false.B // Read from memory
-      io.writeReadReg := false.B // Not used for this instruction
+      io.readReg := false.B // Not used for this instruction
       io.writeToMemory := false.B // Don't write to memory
       io.loadFromMemory := false.B // Not used for this instruction
       io.jump := false.B // Don't jump
@@ -132,7 +132,7 @@ class ControlUnit extends Module {
       io.aluOp := "b000000".U // Add
       io.aluSrc := true.B // Read from immediate
       io.memToReg := true.B // Read from memory
-      io.writeReadReg := true.B // Use instruction[25-21] as read register
+      io.readReg := true.B // Use instruction[25-21] as read register
       io.writeToMemory := false.B // Don't write to memory
       io.loadFromMemory := true.B // load from memory
       io.jump := false.B // Don't jump
@@ -145,7 +145,7 @@ class ControlUnit extends Module {
       io.aluOp := "b000000".U // Add
       io.aluSrc := false.B // Read b
       io.memToReg := true.B // Not used for this instruction
-      io.writeReadReg := true.B // Use instruction[25-21] as read register
+      io.readReg := true.B // Use instruction[25-21] as read register
       io.writeToMemory := true.B // Write to memory
       io.loadFromMemory := false.B // Not used for this instruction
       io.jump := false.B // Don't jump
@@ -158,7 +158,7 @@ class ControlUnit extends Module {
       io.aluOp := "b000000".U // Add
       io.aluSrc := true.B // Read from immediate
       io.memToReg := false.B // Read from ALU
-      io.writeReadReg := false.B // Not used for this instruction
+      io.readReg := false.B // Not used for this instruction
       io.writeToMemory := false.B // Don't write to memory
       io.loadFromMemory := false.B // Not used for this instruction
       io.jump := false.B // Don't jump
@@ -173,7 +173,7 @@ class ControlUnit extends Module {
       io.aluOp := "b100000".U // ALU JR
       io.aluSrc := true.B // Not used for this instruction
       io.memToReg := false.B // Not used for this instruction
-      io.writeReadReg := false.B // Not used for this instruction
+      io.readReg := false.B // Not used for this instruction
       io.writeToMemory := false.B // Don't write to memory
       io.loadFromMemory := false.B // Not used for this instruction
       io.jump := true.B // Jump
@@ -186,7 +186,7 @@ class ControlUnit extends Module {
       io.aluOp := "b100001".U // Subtraction
       io.aluSrc := false.B // Read from register
       io.memToReg := false.B // Not used for this instruction
-      io.writeReadReg := true.B  // Use instruction[25-21] as read register
+      io.readReg := true.B  // Use instruction[25-21] as read register
       io.writeToMemory := false.B // Don't write to memory
       io.loadFromMemory := false.B // Not used for this instruction
       io.jump := true.B // Jump
@@ -199,7 +199,7 @@ class ControlUnit extends Module {
       io.aluOp := "b000000".U // Not used for this instruction
       io.aluSrc := false.B //Not used for this instruction
       io.memToReg := false.B // Not used for this instruction
-      io.writeReadReg := false.B // Not used for this instruction
+      io.readReg := false.B // Not used for this instruction
       io.writeToMemory := false.B // Not used for this instruction
       io.loadFromMemory := false.B // Not used for this instruction
       io.jump := false.B // Not used for this instruction

@@ -39,7 +39,7 @@ class CPUTop extends Module {
   // ProgramMemory -> RegisterFile and ControUnit
   registerFile.io.aSel:=programMemory.io.instructionRead(20,16);
   // Mux Gate, if sel true, then 25-21, else 15-11
-  registerFile.io.bSel:= Mux(controlUnit.io.writeReadReg,programMemory.io.instructionRead(25,21),programMemory.io.instructionRead(15,11))
+  registerFile.io.bSel:= Mux(controlUnit.io.readReg,programMemory.io.instructionRead(25,21),programMemory.io.instructionRead(15,11))
   registerFile.io.writeSel:=programMemory.io.instructionRead(25,21)
   // Mux Gate, if sel true, then dataRead, else alu output
   registerFile.io.writeData:=Mux(controlUnit.io.memToReg,dataMemory.io.dataRead,alu.io.result)
