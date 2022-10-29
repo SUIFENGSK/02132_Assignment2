@@ -1,0 +1,125 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Sat Oct 29 12:08:58 2022
+[*]
+[dumpfile] "G:\OneDrive_PRIVAT\OneDrive\Uni_DTU\3.semester\02132 Computersystemer E22\02132_workspace\02132_Assignment2\generated\CPUTop.vcd"
+[dumpfile_mtime] "Sat Oct 29 11:40:16 2022"
+[dumpfile_size] 21728789
+[savefile] "G:\OneDrive_PRIVAT\OneDrive\Uni_DTU\3.semester\02132 Computersystemer E22\02132_workspace\02132_Assignment2\generated\CPUTest.gtkw"
+[timestart] 6778
+[size] 1920 1009
+[pos] -1 -1
+*-6.000000 7081 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] CPUTop.
+[treeopen] CPUTop.dataMemory.
+[sst_width] 211
+[signals_width] 514
+[sst_expanded] 1
+[sst_vpaned_height] 298
+@28
+CPUTop.clock
+CPUTop.programMemory.io_instructionRead[31:0]
+@25
+CPUTop.registerFile.io_bSel[4:0]
+@24
+CPUTop.registerFile.io_b[31:0]
+@28
+CPUTop.controlUnit.io_aluSrc
+@24
+CPUTop.signExtend[31:0]
+@28
+CPUTop.programCounter.io_jump
+CPUTop.controlUnit.io_writeToMemory
+@200
+-
+-DataMemory
+@24
+CPUTop.dataMemory.io_address[15:0]
+CPUTop.dataMemory.io_dataRead[31:0]
+@200
+-
+-ALU
+@24
+CPUTop.alu.io_oper1[31:0]
+CPUTop.alu.io_oper2[31:0]
+CPUTop.alu.io_result[31:0]
+CPUTop.alu.io_comparisonResult
+@200
+-
+-Reg
+@24
+CPUTop.registerFile.regFile_0[31:0]
+@c00024
+CPUTop.registerFile.regFile_1[31:0]
+@28
+(0)CPUTop.registerFile.regFile_1[31:0]
+(1)CPUTop.registerFile.regFile_1[31:0]
+(2)CPUTop.registerFile.regFile_1[31:0]
+(3)CPUTop.registerFile.regFile_1[31:0]
+(4)CPUTop.registerFile.regFile_1[31:0]
+(5)CPUTop.registerFile.regFile_1[31:0]
+(6)CPUTop.registerFile.regFile_1[31:0]
+(7)CPUTop.registerFile.regFile_1[31:0]
+(8)CPUTop.registerFile.regFile_1[31:0]
+(9)CPUTop.registerFile.regFile_1[31:0]
+(10)CPUTop.registerFile.regFile_1[31:0]
+(11)CPUTop.registerFile.regFile_1[31:0]
+(12)CPUTop.registerFile.regFile_1[31:0]
+(13)CPUTop.registerFile.regFile_1[31:0]
+(14)CPUTop.registerFile.regFile_1[31:0]
+(15)CPUTop.registerFile.regFile_1[31:0]
+(16)CPUTop.registerFile.regFile_1[31:0]
+(17)CPUTop.registerFile.regFile_1[31:0]
+(18)CPUTop.registerFile.regFile_1[31:0]
+(19)CPUTop.registerFile.regFile_1[31:0]
+(20)CPUTop.registerFile.regFile_1[31:0]
+(21)CPUTop.registerFile.regFile_1[31:0]
+(22)CPUTop.registerFile.regFile_1[31:0]
+(23)CPUTop.registerFile.regFile_1[31:0]
+(24)CPUTop.registerFile.regFile_1[31:0]
+(25)CPUTop.registerFile.regFile_1[31:0]
+(26)CPUTop.registerFile.regFile_1[31:0]
+(27)CPUTop.registerFile.regFile_1[31:0]
+(28)CPUTop.registerFile.regFile_1[31:0]
+(29)CPUTop.registerFile.regFile_1[31:0]
+(30)CPUTop.registerFile.regFile_1[31:0]
+(31)CPUTop.registerFile.regFile_1[31:0]
+@1401200
+-group_end
+@24
+CPUTop.registerFile.regFile_2[31:0]
+@200
+-
+-x
+@24
+CPUTop.registerFile.regFile_3[31:0]
+@200
+-
+@24
+CPUTop.registerFile.regFile_4[31:0]
+CPUTop.registerFile.regFile_5[31:0]
+@200
+-y
+@24
+CPUTop.registerFile.regFile_6[31:0]
+@200
+-
+@24
+CPUTop.registerFile.regFile_7[31:0]
+CPUTop.registerFile.regFile_8[31:0]
+CPUTop.registerFile.regFile_9[31:0]
+CPUTop.registerFile.regFile_10[31:0]
+CPUTop.registerFile.regFile_11[31:0]
+CPUTop.registerFile.regFile_12[31:0]
+CPUTop.registerFile.regFile_13[31:0]
+CPUTop.registerFile.regFile_14[31:0]
+CPUTop.registerFile.regFile_15[31:0]
+CPUTop.registerFile.regFile_16[31:0]
+CPUTop.registerFile.regFile_17[31:0]
+CPUTop.registerFile.regFile_18[31:0]
+CPUTop.registerFile.regFile_19[31:0]
+CPUTop.registerFile.regFile_20[31:0]
+CPUTop.registerFile.regFile_21[31:0]
+CPUTop.programCounter.io_programCounter[15:0]
+[pattern_trace] 1
+[pattern_trace] 0
