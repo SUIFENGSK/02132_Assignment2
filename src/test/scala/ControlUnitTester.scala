@@ -13,6 +13,7 @@ class ControlUnitTester(dut: ControlUnit) extends PeekPokeTester(dut) {
   expect(dut.io.memToReg, false)
   expect(dut.io.writeReadReg, false)
   expect(dut.io.writeToMemory, false)
+  expect(dut.io.loadFromMemory,false)
   expect(dut.io.jump, false)
   expect(dut.io.stop, false)
 
@@ -25,6 +26,7 @@ class ControlUnitTester(dut: ControlUnit) extends PeekPokeTester(dut) {
   expect(dut.io.memToReg, false)
   expect(dut.io.writeReadReg, false)
   expect(dut.io.writeToMemory, false)
+  expect(dut.io.loadFromMemory,false)
   expect(dut.io.jump, false)
   expect(dut.io.stop, false)
 
@@ -37,6 +39,7 @@ class ControlUnitTester(dut: ControlUnit) extends PeekPokeTester(dut) {
   expect(dut.io.memToReg, false)
   expect(dut.io.writeReadReg, false)
   expect(dut.io.writeToMemory, false)
+  expect(dut.io.loadFromMemory,false)
   expect(dut.io.jump, false)
   expect(dut.io.stop, false)
 
@@ -49,6 +52,7 @@ class ControlUnitTester(dut: ControlUnit) extends PeekPokeTester(dut) {
   expect(dut.io.memToReg, false)
   expect(dut.io.writeReadReg, false)
   expect(dut.io.writeToMemory, false)
+  expect(dut.io.loadFromMemory,false)
   expect(dut.io.jump, false)
   expect(dut.io.stop, false)
 
@@ -61,6 +65,7 @@ class ControlUnitTester(dut: ControlUnit) extends PeekPokeTester(dut) {
   expect(dut.io.memToReg, false)
   expect(dut.io.writeReadReg, false)
   expect(dut.io.writeToMemory, false)
+  expect(dut.io.loadFromMemory,false)
   expect(dut.io.jump, false)
   expect(dut.io.stop, false)
 
@@ -73,6 +78,7 @@ class ControlUnitTester(dut: ControlUnit) extends PeekPokeTester(dut) {
   expect(dut.io.memToReg, false)
   expect(dut.io.writeReadReg, false)
   expect(dut.io.writeToMemory, false)
+  expect(dut.io.loadFromMemory,false)
   expect(dut.io.jump, false)
   expect(dut.io.stop, false)
 
@@ -87,6 +93,7 @@ class ControlUnitTester(dut: ControlUnit) extends PeekPokeTester(dut) {
   expect(dut.io.memToReg, false)
   expect(dut.io.writeReadReg, false)
   expect(dut.io.writeToMemory, false)
+  expect(dut.io.loadFromMemory,false)
   expect(dut.io.jump, false)
   expect(dut.io.stop, false)
 
@@ -97,8 +104,9 @@ class ControlUnitTester(dut: ControlUnit) extends PeekPokeTester(dut) {
   expect(dut.io.aluOp, "b000000".U)
   expect(dut.io.aluSrc, true)
   expect(dut.io.memToReg, true)
-  expect(dut.io.writeReadReg, false)
+  expect(dut.io.writeReadReg, true)
   expect(dut.io.writeToMemory, false)
+  expect(dut.io.loadFromMemory,true)
   expect(dut.io.jump, false)
   expect(dut.io.stop, false)
 
@@ -111,6 +119,7 @@ class ControlUnitTester(dut: ControlUnit) extends PeekPokeTester(dut) {
   expect(dut.io.memToReg, true)
   expect(dut.io.writeReadReg, true)
   expect(dut.io.writeToMemory, true)
+  expect(dut.io.loadFromMemory,false)
   expect(dut.io.jump, false)
   expect(dut.io.stop, false)
 
@@ -123,6 +132,7 @@ class ControlUnitTester(dut: ControlUnit) extends PeekPokeTester(dut) {
   expect(dut.io.memToReg, false)
   expect(dut.io.writeReadReg, false)
   expect(dut.io.writeToMemory, false)
+  expect(dut.io.loadFromMemory,false)
   expect(dut.io.jump, false)
   expect(dut.io.stop, false)
 
@@ -133,11 +143,12 @@ class ControlUnitTester(dut: ControlUnit) extends PeekPokeTester(dut) {
   poke(dut.io.opcode, "b100000".U)
   step(1)
   expect(dut.io.regWrite, false)
-  expect(dut.io.aluOp, "b000000".U)
+  expect(dut.io.aluOp, "b100000".U)
   expect(dut.io.aluSrc, true)
   expect(dut.io.memToReg, false)
   expect(dut.io.writeReadReg, false)
   expect(dut.io.writeToMemory, false)
+  expect(dut.io.loadFromMemory,false)
   expect(dut.io.jump, true)
   expect(dut.io.stop, false)
 
@@ -150,6 +161,7 @@ class ControlUnitTester(dut: ControlUnit) extends PeekPokeTester(dut) {
   expect(dut.io.memToReg, false)
   expect(dut.io.writeReadReg, true)
   expect(dut.io.writeToMemory, false)
+  expect(dut.io.loadFromMemory,false)
   expect(dut.io.jump, true)
   expect(dut.io.stop, false)
 
@@ -162,6 +174,7 @@ class ControlUnitTester(dut: ControlUnit) extends PeekPokeTester(dut) {
   expect(dut.io.memToReg, false)
   expect(dut.io.writeReadReg, false)
   expect(dut.io.writeToMemory, false)
+  expect(dut.io.loadFromMemory,false)
   expect(dut.io.jump, true)
   expect(dut.io.stop, false)
 
@@ -174,6 +187,7 @@ class ControlUnitTester(dut: ControlUnit) extends PeekPokeTester(dut) {
   expect(dut.io.memToReg, false)
   expect(dut.io.writeReadReg, false)
   expect(dut.io.writeToMemory, false)
+  expect(dut.io.loadFromMemory,false)
   expect(dut.io.jump, false)
   expect(dut.io.stop, true)
 
