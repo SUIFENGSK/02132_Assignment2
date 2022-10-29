@@ -33,7 +33,7 @@ class CPUTop extends Module {
   programCounter.io.run := io.run
   programMemory.io.address := programCounter.io.programCounter
   programCounter.io.stop:=controlUnit.io.stop
-  programCounter.io.jump:= controlUnit.io.jump && alu.io.comparisonResult //And Gate
+  programCounter.io.jump:= controlUnit.io.jump & alu.io.comparisonResult //And Gate
   programCounter.io.programCounterJump:=programMemory.io.instructionRead
 
   // ProgramMemory -> RegisterFile and ControUnit
